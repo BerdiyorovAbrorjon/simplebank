@@ -62,26 +62,6 @@ func (store *SQLStore) TransferTx(ctx context.Context, arg TransferTxParams) (Tr
 			result.ToAccount, result.FromAccount, err = addMoney(ctx, q, arg.ToAccountID, arg.Amount, arg.FromAccountID, -arg.Amount)
 		}
 
-		//update from account's balance
-		// result.FromAccount, err = q.AddMoneyAccount(ctx, AddMoneyAccountParams{
-		// 	Amount: -arg.Amount,
-		// 	ID:     arg.FromAccountID,
-		// })
-		// if err != nil {
-		// 	fmt.Println("ERROR: update from  balance")
-		// 	return err
-		// }
-
-		// //update to account's balance
-		// result.ToAccount, err = q.AddMoneyAccount(ctx, AddMoneyAccountParams{
-		// 	Amount: arg.Amount,
-		// 	ID:     arg.ToAccountID,
-		// })
-		// if err != nil {
-		// 	fmt.Println("ERROR: update to  balance")
-		// 	return err
-		// }
-
 		return nil
 	})
 
